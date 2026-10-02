@@ -12,3 +12,6 @@
 * **ft_printf**, *42 Cursus*,
 	https://42-cursus.gitbook.io/guide/1-rank-01/ft_printf
 
+* **Variadic Functions**, *Sumi Garden*,
+	https://notes.devnyxie.com/0-Notes/c/variadic_functions
+
