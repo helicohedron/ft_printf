@@ -4,6 +4,16 @@
 
 ## Description
 
+Learn how to use macros:
+
+| Macro		 | Description														|
+| ---------- | ---------------------------------------------------------------- |
+| `va_list`	 | Type that holds variable arguments								|
+| `va_start` | Initializes va list, (va_list, named argument)					|
+| `va_arg`	 | Accesses the variable arguments, (va_list, type of the argument)	|
+| `va_end`	 | Cleans up the va list, (va_list)									|
+
+
 ## Resources
 
 * **25 Variadic Functions**, *Beej.us*, 

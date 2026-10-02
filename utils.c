@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests.c                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrosette <jrosette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/02 18:29:43 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/02 20:59:44 by jrosette         ###   ########.fr       */
+/*   Created: 2026/10/02 20:36:38 by jrosette          #+#    #+#             */
+/*   Updated: 2026/10/02 20:44:24 by jrosette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	main(void)
+int	ft_putchar(const char element)
 {
-	ft_printf("hello 123\n");
-	ft_printf("hello %c 123", 'E'); // there's a bug here
-	return (0);
+	int	fd;
+
+	fd = 1;
+	write(fd, &element, 1);
+	return (1);
 }

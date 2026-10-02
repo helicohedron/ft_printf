@@ -6,7 +6,7 @@
 /*   By: jrosette <jrosette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 18:27:47 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/02 19:08:24 by jrosette         ###   ########.fr       */
+/*   Updated: 2026/10/02 20:59:12 by jrosette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,27 @@ Return value of ft_printf is an int
 
 int	ft_printf(const char *string, ...)
 {
-	int		result;
+	int		char_count;
+	int		i;
 	va_list args;
 	
-	va_start(args, string);
-	while (string)
-	{
-		result += putchar_count(string);
-		string = va_arg(args, const char *);
-	}
-	va_end(args);
-	return (result);
-}
-
-static int	putchar_count(char *string)
-{
-	int	i;
-	int	fd;
-
-	fd = 1;
 	i = 0;
+	char_count = 0;
+	va_start(args, string);
 	while (string[i])
 	{
-		write(fd, &string[i], 1);
+		if (string[i] == '%')
+		{
+			i++;
+			if (string[i] == '\0')
+				return (-1);
+			else
+				handle_specifiers(string[i], args, &char_count);
+		}
+		char_count += ft_putchar(string[i]);
 		i++;
 	}
-	return (i);
+	va_end(args);
+	return (char_count);
 }
+
