@@ -6,7 +6,7 @@
 /*   By: camille <camille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:31:22 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/03 21:06:03 by camille          ###   ########.fr       */
+/*   Updated: 2026/10/03 21:18:38 by camille          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ static void	handle_hex(char spec, va_list args, int *count)
 	ft_puthex(spec, nbr, count);
 }
 
+// in the works
 static void	handle_ptr(va_list args, int *count)
 {
 	char	*string;
