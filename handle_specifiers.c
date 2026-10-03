@@ -6,7 +6,7 @@
 /*   By: camille <camille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:31:22 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/03 14:53:08 by camille          ###   ########.fr       */
+/*   Updated: 2026/10/03 16:42:17 by camille          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ void	handle_specifiers(char spec, va_list args, int *count)
 		handle_char(args, count);
 	else if (spec == 's')
 		handle_string(args, count);
+	else if (spec == 'i' || spec == 'd')
+		handle_nbrs(args, count);
+	// else -> how to handle errors?
 }
 
 static void	handle_char(va_list args, int *count)
@@ -43,4 +46,12 @@ static void	handle_string(va_list args, int *count)
 		*count += ft_putchar(string[i]);
 		i++;
 	}	
+}
+
+static void	handle_nbrs(va_list args, int *count)
+{
+	int	nbr;
+	
+	nbr = va_arg(args, int);
+	ft_putnbr(nbr, count);
 }
