@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jrosette <jrosette@student.42.fr>          +#+  +:+       +#+        */
+/*   By: camille <camille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 18:27:47 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/02 20:59:12 by jrosette         ###   ########.fr       */
+/*   Updated: 2026/10/03 14:44:35 by camille          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ int	ft_printf(const char *string, ...)
 			if (string[i] == '\0')
 				return (-1);
 			else
-				handle_specifiers(string[i], args, &char_count);
+			{
+                handle_specifiers(string[i], args, &char_count);
+                i++;                
+            }
 		}
 		char_count += ft_putchar(string[i]);
 		i++;
