@@ -6,7 +6,7 @@
 /*   By: camille <camille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 18:29:43 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/03 16:59:05 by camille          ###   ########.fr       */
+/*   Updated: 2026/10/03 17:08:16 by camille          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,8 @@ int	main(void)
 
 	// Printing with %i
 	ft_printf("Test 4: hello %i and bear\n", INT_MAX);
+
+	// Printing with %u
+	ft_printf("Test 4: hello %u and bear\n", UINT_MAX);
 	return (0);
 }

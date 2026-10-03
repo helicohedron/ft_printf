@@ -6,15 +6,26 @@
 /*   By: camille <camille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:31:22 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/03 16:58:22 by camille          ###   ########.fr       */
+/*   Updated: 2026/10/03 17:14:17 by camille          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/*
+%c  → int
+%s  → char *
+%d  → int
+%i  → int
+%u  → unsigned int
+%x  → unsigned int
+%X  → unsigned int
+%p  → void *
+*/
 static void	handle_char(va_list args, int *count);
 static void	handle_string(va_list args, int *count);
 static void	handle_nbrs(va_list args, int *count);
+static void	handle_unbrs(va_list args, int *count);
 
 void	handle_specifiers(char spec, va_list args, int *count)
 {
@@ -25,6 +36,8 @@ void	handle_specifiers(char spec, va_list args, int *count)
 		handle_string(args, count);
 	else if (spec == 'i' || spec == 'd')
 		handle_nbrs(args, count);
+	else if (spec == 'u')
+		handle_unbrs(args, count);
 	// else -> how to handle errors?
 }
 
@@ -54,5 +67,13 @@ static void	handle_nbrs(va_list args, int *count)
 	int	nbr;
 	
 	nbr = va_arg(args, int);
+	ft_putnbr(nbr, count);
+}
+
+static void	handle_unbrs(va_list args, int *count)
+{
+	unsigned int	nbr;
+	
+	nbr = va_arg(args, unsigned int);
 	ft_putnbr(nbr, count);
 }
