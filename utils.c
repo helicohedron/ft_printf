@@ -6,7 +6,7 @@
 /*   By: camille <camille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:36:38 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/03 20:30:23 by camille          ###   ########.fr       */
+/*   Updated: 2026/10/03 20:43:34 by camille          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void    ft_puthex(char spec, unsigned int nbr, int *count)
 		ft_puthex(spec, (nbr / 16), count);
 	rem = nbr % 16;
 	if (rem >= 10 && rem <=15)
-		c = convert_to_hexchars(spec, rem);
+		c = convert_to_hexalpha(spec, rem);
 	else
 		c = rem + '0';
 	write (fd, &c, 1);

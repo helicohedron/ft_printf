@@ -6,7 +6,7 @@
 /*   By: camille <camille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:31:22 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/03 20:29:35 by camille          ###   ########.fr       */
+/*   Updated: 2026/10/03 20:33:24 by camille          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 %x  → unsigned int
 %X  → unsigned int
 %p  → void *
+%%  → int?
 */
 static void	handle_char(va_list args, int *count);
 static void	handle_string(va_list args, int *count);
