@@ -6,7 +6,7 @@
 /*   By: camille <camille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 19:04:40 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/03 16:41:44 by camille          ###   ########.fr       */
+/*   Updated: 2026/10/03 16:57:45 by camille          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@
 int		ft_printf(const char *string, ...);
 int		ft_putchar(const char element);
 void	handle_specifiers(char spec, va_list args, int *count);
-int	ft_putnbr(int nbr, int *count);
+void    ft_putnbr(long nbr, int *count);
 
 #endif

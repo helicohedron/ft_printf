@@ -6,7 +6,7 @@
 /*   By: camille <camille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:31:22 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/03 16:42:17 by camille          ###   ########.fr       */
+/*   Updated: 2026/10/03 16:58:22 by camille          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static void	handle_char(va_list args, int *count);
 static void	handle_string(va_list args, int *count);
+static void	handle_nbrs(va_list args, int *count);
 
 void	handle_specifiers(char spec, va_list args, int *count)
 {

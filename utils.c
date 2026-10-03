@@ -6,7 +6,7 @@
 /*   By: camille <camille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:36:38 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/03 16:44:22 by camille          ###   ########.fr       */
+/*   Updated: 2026/10/03 16:55:08 by camille          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,16 @@ int	ft_putchar(const char element)
 	return (1);
 }
 
-int	ft_putnbr(int nbr, int *count)
+void ft_putnbr(long nbr, int *count)
 {
 	int		fd;
 	char	c;
 
 	fd = 1;
-	// INT_MIN issue
 	if (nbr < 0)
 	{
 		write(fd, "-", 1);
-		(*count)++;	
+		(*count)++;
 		nbr *= -1;		
 	}
 	if (nbr > 9)
@@ -39,5 +38,4 @@ int	ft_putnbr(int nbr, int *count)
 	c = (nbr % 10) + '0';
 	write(fd, &c, 1);
 	(*count)++;	
-	return (0);
 }
