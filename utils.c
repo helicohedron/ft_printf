@@ -6,11 +6,13 @@
 /*   By: camille <camille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:36:38 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/03 17:16:40 by camille          ###   ########.fr       */
+/*   Updated: 2026/10/03 20:30:23 by camille          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static char	convert_to_hexalpha(char spec, unsigned int nbr); 
 
 int	ft_putchar(const char element)
 {
@@ -21,7 +23,7 @@ int	ft_putchar(const char element)
 	return (1);
 }
 
-void ft_putnbr(long nbr, int *count)
+void	ft_putnbr(long nbr, int *count)
 {
 	int		fd;
 	char	c;
@@ -38,4 +40,29 @@ void ft_putnbr(long nbr, int *count)
 	c = (nbr % 10) + '0';
 	write(fd, &c, 1);
 	(*count)++;	
+}
+
+void    ft_puthex(char spec, unsigned int nbr, int *count)
+{
+	int		fd;
+	int		rem;
+	char	c;
+	
+	fd = 1;
+	if (nbr > 15)
+		ft_puthex(spec, (nbr / 16), count);
+	rem = nbr % 16;
+	if (rem >= 10 && rem <=15)
+		c = convert_to_hexchars(spec, rem);
+	else
+		c = rem + '0';
+	write (fd, &c, 1);
+	(*count)++;
+}
+
+static char	convert_to_hexalpha(char spec, unsigned int nbr)
+{
+	if (spec == 'x')
+		return ('a' + (nbr - 10));
+	return ('A' + (nbr - 10));
 }

@@ -6,7 +6,7 @@
 /*   By: camille <camille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:31:22 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/03 17:14:17 by camille          ###   ########.fr       */
+/*   Updated: 2026/10/03 20:29:35 by camille          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	handle_char(va_list args, int *count);
 static void	handle_string(va_list args, int *count);
 static void	handle_nbrs(va_list args, int *count);
 static void	handle_unbrs(va_list args, int *count);
+static void	handle_hex(char spec, va_list args, int *count);
 
 void	handle_specifiers(char spec, va_list args, int *count)
 {
@@ -38,6 +39,8 @@ void	handle_specifiers(char spec, va_list args, int *count)
 		handle_nbrs(args, count);
 	else if (spec == 'u')
 		handle_unbrs(args, count);
+	else if (spec == 'x' || spec == 'X')
+		handle_hex(spec, args, count);
 	// else -> how to handle errors?
 }
 
@@ -76,4 +79,12 @@ static void	handle_unbrs(va_list args, int *count)
 	
 	nbr = va_arg(args, unsigned int);
 	ft_putnbr(nbr, count);
+}
+
+static void	handle_hex(char spec, va_list args, int *count)
+{
+	unsigned int	nbr;
+	
+	nbr = va_arg(args, unsigned int);
+	ft_puthex(spec, nbr, count);
 }
