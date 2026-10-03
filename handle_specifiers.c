@@ -6,7 +6,7 @@
 /*   By: camille <camille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:31:22 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/03 20:33:24 by camille          ###   ########.fr       */
+/*   Updated: 2026/10/03 21:06:03 by camille          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static void	handle_string(va_list args, int *count);
 static void	handle_nbrs(va_list args, int *count);
 static void	handle_unbrs(va_list args, int *count);
 static void	handle_hex(char spec, va_list args, int *count);
+static void	handle_ptr(va_list args, int *count);
 
 void	handle_specifiers(char spec, va_list args, int *count)
 {
@@ -42,6 +43,8 @@ void	handle_specifiers(char spec, va_list args, int *count)
 		handle_unbrs(args, count);
 	else if (spec == 'x' || spec == 'X')
 		handle_hex(spec, args, count);
+	else if (spec == 'p')
+		handle_ptr(args, count);
 	// else -> how to handle errors?
 }
 
@@ -88,4 +91,18 @@ static void	handle_hex(char spec, va_list args, int *count)
 	
 	nbr = va_arg(args, unsigned int);
 	ft_puthex(spec, nbr, count);
+}
+
+static void	handle_ptr(va_list args, int *count)
+{
+	char	*string;
+	int		i;
+	
+	string = va_arg(args, void *);
+	i = 0;
+	while (string[i])
+	{
+		*count += ft_putchar(&(string[i]));
+		i++;
+	}
 }

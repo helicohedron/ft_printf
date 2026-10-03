@@ -6,7 +6,7 @@
 /*   By: camille <camille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 18:29:43 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/03 20:47:16 by camille          ###   ########.fr       */
+/*   Updated: 2026/10/03 21:09:51 by camille          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,21 @@ int	main(void)
 	printf("\n");
 	result = printf("Base 6: hello %x and bear\n", UINT_MAX);
 	printf("Result: %i\n", result);	
-	result = ft_printf("Base 6: hello %x and bear\n", UINT_MAX);
+	result = ft_printf("Test 6: hello %x and bear\n", UINT_MAX);
 	printf("Result: %i\n", result);
 	
 	// Printing with %X
 	printf("\n");
 	result = printf("Base 7: hello %X and bear\n", UINT_MAX);
 	printf("Result: %i\n", result);	
-	result = ft_printf("Base 7: hello %X and bear\n", UINT_MAX);
+	result = ft_printf("Test 7: hello %X and bear\n", UINT_MAX);
+	printf("Result: %i\n", result);
+
+	// Printing with %p
+	printf("\n");
+	result = printf("Base 8: hello %p and bear\n", "x");
+	printf("Result: %i\n", result);	
+	result = ft_printf("Test 8: hello %p and bear\n", "x");
 	printf("Result: %i\n", result);
 	
 	// Printing for multiple specifiers
