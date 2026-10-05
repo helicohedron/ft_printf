@@ -6,7 +6,7 @@
 /*   By: jrosette <jrosette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:36:38 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/05 13:33:22 by jrosette         ###   ########.fr       */
+/*   Updated: 2026/10/05 13:52:24 by jrosette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,3 +68,12 @@ static char	convert_to_hexalpha(char spec, unsigned long nbr)
 	return ('A' + (nbr - 10));
 }
 
+int	ft_putnull(void)
+{
+	write (1, "(", 1);
+	write (1, "n", 1);
+	write (1, "i", 1);
+	write (1, "l", 1);
+	write (1, ")", 1);
+	return (5);
+}

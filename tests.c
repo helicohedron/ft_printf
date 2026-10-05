@@ -6,7 +6,7 @@
 /*   By: jrosette <jrosette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 18:29:43 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/05 13:34:21 by jrosette         ###   ########.fr       */
+/*   Updated: 2026/10/05 13:42:08 by jrosette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,51 +26,51 @@ int	main(void)
 	
 	// Printing with %c
 	printf("\n");
-	result = printf("Base 1: hello %c and bear\n", 'C');
+	result = printf("Base 1: hello %c and %c\n", 'C', 'B');
 	printf("Result: %i\n", result);
-	result = ft_printf("Test 1: hello %c and bear\n", 'C');
+	result = ft_printf("Test 1: hello %c and %c\n", 'C', 'B');
 	printf("Result: %i\n", result);
 	
 	// Printing with %s
 	printf("\n");
-	result = printf("Base 2: hello %s and bear\n", "CAT");
+	result = printf("Base 2: hello %s and %s\n", "CAT", "BEAR");
 	printf("Result: %i\n", result);
-	result = ft_printf("Test 2: hello %s and bear\n", "CAT");
+	result = ft_printf("Test 2: hello %s and %s\n", "CAT", "BEAR");
 	printf("Result: %i\n", result);
 	
 	// Printing with %d
 	printf("\n");
-	result = printf("Base 3: hello %d and bear\n", INT_MIN);
+	result = printf("Base 3: hello %d and %d\n", INT_MIN, INT_MAX);
 	printf("Result: %i\n", result);
-	result = ft_printf("Test 3: hello %d and bear\n", INT_MIN);
+	result = ft_printf("Test 3: hello %d and %d\n", INT_MIN, INT_MAX);
 	printf("Result: %i\n", result);
 	
 	// Printing with %i
 	printf("\n");
-	result = printf("Base 4: hello %i and bear\n", INT_MAX);
+	result = printf("Base 4: hello %i and %i\n", INT_MIN, INT_MAX);
 	printf("Result: %i\n", result);
-	result = ft_printf("Test 4: hello %i and bear\n", INT_MAX);
+	result = ft_printf("Test 4: hello %i and %i\n", INT_MIN, INT_MAX);
 	printf("Result: %i\n", result);
 	
 	// Printing with %u
 	printf("\n");
-	result = printf("Base 5: hello %u and bear\n", UINT_MAX);
+	result = printf("Base 5: hello %u and %u\n", 0, UINT_MAX);
 	printf("Result: %i\n", result);	
-	result = ft_printf("Test 5: hello %u and bear\n", UINT_MAX);
+	result = ft_printf("Test 5: hello %u and %u\n", 0, UINT_MAX);
 	printf("Result: %i\n", result);
 	
 	// Printing with %x
 	printf("\n");
-	result = printf("Base 6: hello %x and bear\n", UINT_MAX);
+	result = printf("Base 6: hello %x and %x\n", 0, UINT_MAX);
 	printf("Result: %i\n", result);	
-	result = ft_printf("Test 6: hello %x and bear\n", UINT_MAX);
+	result = ft_printf("Test 6: hello %x and %x\n", 0, UINT_MAX);
 	printf("Result: %i\n", result);
 	
 	// Printing with %X
 	printf("\n");
-	result = printf("Base 7: hello %X and bear\n", UINT_MAX);
+	result = printf("Base 7: hello %X and %X\n", 42, UINT_MAX);
 	printf("Result: %i\n", result);	
-	result = ft_printf("Test 7: hello %X and bear\n", UINT_MAX);
+	result = ft_printf("Test 7: hello %X and %X\n", 42, UINT_MAX);
 	printf("Result: %i\n", result);
 
 	// Printing with %p

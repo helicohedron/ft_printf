@@ -6,7 +6,7 @@
 /*   By: jrosette <jrosette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 19:04:40 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/05 13:28:04 by jrosette         ###   ########.fr       */
+/*   Updated: 2026/10/05 13:54:56 by jrosette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ void	handle_specifiers(char spec, va_list args, int *count);
 void    ft_putnbr(long nbr, int *count);
 void    ft_puthex(char spec, unsigned long nbr, int *count);
 void	ft_putptr(char spec, unsigned long nbr, int *count);
+int		ft_putnull(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jrosette <jrosette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:31:22 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/05 13:26:55 by jrosette         ###   ########.fr       */
+/*   Updated: 2026/10/05 13:56:02 by jrosette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,11 @@ static void	handle_hex(char spec, va_list args, int *count)
 // in the works
 static void	handle_ptr(char spec, va_list args, int *count)
 {
-	unsigned long	nbr;
+	void	*nbr;
 	
-	nbr = va_arg(args, unsigned long);
-	ft_putptr(spec, nbr, count);
+	nbr = va_arg(args, void *);
+	if (nbr == NULL)
+		*count += ft_putnull();
+	else
+		ft_putptr(spec, (unsigned long)nbr, count);
 }
