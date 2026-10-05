@@ -6,7 +6,7 @@
 /*   By: jrosette <jrosette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:31:22 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/05 14:19:32 by jrosette         ###   ########.fr       */
+/*   Updated: 2026/10/05 14:27:10 by jrosette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ static void	handle_perc(int *count);
 
 void	handle_specifiers(char spec, va_list args, int *count)
 {
-	// delegates functions based on the specifier
 	if (spec == 'c')
 		handle_char(args, count);
 	else if (spec == 's')
@@ -48,7 +47,8 @@ void	handle_specifiers(char spec, va_list args, int *count)
 		handle_ptr(spec, args, count);
 	else if (spec == '%')
 		handle_perc(count);
-	// else -> how to handle errors?
+	else
+		return ;
 }
 
 static void	handle_char(va_list args, int *count)
