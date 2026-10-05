@@ -6,7 +6,7 @@
 /*   By: jrosette <jrosette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 18:29:43 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/05 13:42:08 by jrosette         ###   ########.fr       */
+/*   Updated: 2026/10/05 14:20:00 by jrosette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,13 +83,17 @@ int	main(void)
 	printf("Result: %i\n", result);
 
 	printf("\n");
-	result = printf("Base 9: hello %p and bear\n", NULL);
+	result = printf("Base 8.1: hello %p and bear\n", NULL);
 	printf("Result: %i\n", result);	
-	result = ft_printf("Test 9: hello %p and bear\n", NULL);
+	result = ft_printf("Test 8.1: hello %p and bear\n", NULL);
 	printf("Result: %i\n", result);
 	
-	// Printing for multiple specifiers
-	// Test for count
+	// Printing with %%
+	printf("\n");
+	result = printf("Base 9: hello %% and bear %%\n");
+	printf("Result: %i\n", result);	
+	result = ft_printf("Test 9: hello %% and bear %%\n");
+	printf("Result: %i\n", result);
 	
 	return (0);
 }
