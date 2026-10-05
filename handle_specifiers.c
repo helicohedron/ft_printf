@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_specifiers.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: camille <camille@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jrosette <jrosette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:31:22 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/03 21:18:38 by camille          ###   ########.fr       */
+/*   Updated: 2026/10/05 13:26:55 by jrosette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	handle_string(va_list args, int *count);
 static void	handle_nbrs(va_list args, int *count);
 static void	handle_unbrs(va_list args, int *count);
 static void	handle_hex(char spec, va_list args, int *count);
-static void	handle_ptr(va_list args, int *count);
+static void	handle_ptr(char spec, va_list args, int *count);
 
 void	handle_specifiers(char spec, va_list args, int *count)
 {
@@ -44,7 +44,7 @@ void	handle_specifiers(char spec, va_list args, int *count)
 	else if (spec == 'x' || spec == 'X')
 		handle_hex(spec, args, count);
 	else if (spec == 'p')
-		handle_ptr(args, count);
+		handle_ptr(spec, args, count);
 	// else -> how to handle errors?
 }
 
@@ -87,23 +87,17 @@ static void	handle_unbrs(va_list args, int *count)
 
 static void	handle_hex(char spec, va_list args, int *count)
 {
-	unsigned int	nbr;
+	unsigned long	nbr;
 	
-	nbr = va_arg(args, unsigned int);
+	nbr = va_arg(args, unsigned long);
 	ft_puthex(spec, nbr, count);
 }
 
 // in the works
-static void	handle_ptr(va_list args, int *count)
+static void	handle_ptr(char spec, va_list args, int *count)
 {
-	char	*string;
-	int		i;
+	unsigned long	nbr;
 	
-	string = va_arg(args, void *);
-	i = 0;
-	while (string[i])
-	{
-		*count += ft_putchar(&(string[i]));
-		i++;
-	}
+	nbr = va_arg(args, unsigned long);
+	ft_putptr(spec, nbr, count);
 }

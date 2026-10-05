@@ -3,52 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: camille <camille@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jrosette <jrosette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:36:38 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/03 20:58:50 by camille          ###   ########.fr       */
+/*   Updated: 2026/10/05 13:33:22 by jrosette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char	convert_to_hexalpha(char spec, unsigned int nbr); 
+static char	convert_to_hexalpha(char spec, unsigned long nbr); 
 
 int	ft_putchar(const char element)
 {
-	int	fd;
-
-	fd = 1;
-	write(fd, &element, 1);
+	write(1, &element, 1);
 	return (1);
 }
 
 void	ft_putnbr(long nbr, int *count)
 {
-	int		fd;
 	char	c;
 
-	fd = 1;
 	if (nbr < 0)
 	{
-		write(fd, "-", 1);
+		write(1, "-", 1);
 		(*count)++;
 		nbr *= -1;		
 	}
 	if (nbr > 9)
 		ft_putnbr(nbr / 10, count);
 	c = (nbr % 10) + '0';
-	write(fd, &c, 1);
+	write(1, &c, 1);
 	(*count)++;	
 }
 
-void    ft_puthex(char spec, unsigned int nbr, int *count)
+void    ft_puthex(char spec, unsigned long nbr, int *count)
 {
-	int		fd;
 	int		rem;
 	char	c;
 	
-	fd = 1;
 	if (nbr > 15)
 		ft_puthex(spec, (nbr / 16), count);
 	rem = nbr % 16;
@@ -56,13 +49,22 @@ void    ft_puthex(char spec, unsigned int nbr, int *count)
 		c = convert_to_hexalpha(spec, rem);
 	else
 		c = rem + '0';
-	write (fd, &c, 1);
+	write (1, &c, 1);
 	(*count)++;
 }
 
-static char	convert_to_hexalpha(char spec, unsigned int nbr)
+void	ft_putptr(char spec, unsigned long nbr, int *count)
 {
-	if (spec == 'x')
+	write (1, "0", 1);
+	write (1, "x", 1);
+	*count += 2;
+	ft_puthex(spec,nbr, count);
+}
+
+static char	convert_to_hexalpha(char spec, unsigned long nbr)
+{
+	if (spec == 'x' || spec == 'p')
 		return ('a' + (nbr - 10));
 	return ('A' + (nbr - 10));
 }
+

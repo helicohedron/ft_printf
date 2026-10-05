@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tests.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: camille <camille@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jrosette <jrosette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 18:29:43 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/03 21:09:51 by camille          ###   ########.fr       */
+/*   Updated: 2026/10/05 13:34:21 by jrosette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,18 @@ int	main(void)
 	printf("Result: %i\n", result);
 
 	// Printing with %p
+	// Test with NULL
 	printf("\n");
-	result = printf("Base 8: hello %p and bear\n", "x");
+	int	x;
+	result = printf("Base 8: hello %p and bear\n", &x);
 	printf("Result: %i\n", result);	
-	result = ft_printf("Test 8: hello %p and bear\n", "x");
+	result = ft_printf("Test 8: hello %p and bear\n", &x);
+	printf("Result: %i\n", result);
+
+	printf("\n");
+	result = printf("Base 9: hello %p and bear\n", NULL);
+	printf("Result: %i\n", result);	
+	result = ft_printf("Test 9: hello %p and bear\n", NULL);
 	printf("Result: %i\n", result);
 	
 	// Printing for multiple specifiers
