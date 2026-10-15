@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: camille <camille@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jrosette <jrosette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 18:27:47 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/03 21:18:59 by camille          ###   ########.fr       */
+/*   Updated: 2026/10/05 19:02:39 by jrosette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	ft_printf(const char *string, ...)
 {
 	int		char_count;
 	int		i;
-	va_list args;
-	
+	va_list	args;
+
 	i = 0;
 	char_count = 0;
 	va_start(args, string);
@@ -32,18 +32,17 @@ int	ft_printf(const char *string, ...)
 		if (string[i] == '%')
 		{
 			i++;
-			if (string[i] == '\0')
-				return (-1);
-			else
-			{
-				handle_specifiers(string[i], args, &char_count);
-				i++;                
-			}
+			handle_specifiers(string[i], args, &char_count);
+			i++;
 		}
-		char_count += ft_putchar(string[i]);
-		i++;
+		if (string[i] == '\0' || char_count < 0)
+			break ;
+		else if (string[i] != '%')
+		{
+			char_count += ft_putchar(string[i]);
+			i++;
+		}
 	}
 	va_end(args);
 	return (char_count);
 }
-
