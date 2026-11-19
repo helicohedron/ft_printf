@@ -6,7 +6,7 @@
 /*   By: jrosette <jrosette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 18:29:43 by jrosette          #+#    #+#             */
-/*   Updated: 2026/10/05 14:26:49 by jrosette         ###   ########.fr       */
+/*   Updated: 2026/11/19 18:27:36 by jrosette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,11 @@ int	main(void)
 	printf("Result: %i\n", result);	
 	result = ft_printf("Test 9: hello %% and bear %%\n");
 	printf("Result: %i\n", result);
+
+	// Printing with invalid specifier
+	printf("\nInvalid specifier");
+	result = ft_printf(" %j ");
+	printf("\nResult: %i\n", result);
 	
 	return (0);
 }
